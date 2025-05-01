@@ -1,3 +1,25 @@
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Slider } from "@/components/ui/slider";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
+
 export function FormControls() {
   return (
     <div className="space-y-6">
@@ -5,80 +27,57 @@ export function FormControls() {
         <h3 className="text-lg font-medium">Input Controls</h3>
         <div className="grid gap-4">
           <div className="space-y-2">
-            <label htmlFor="text-input" className="text-sm font-medium">Text Input</label>
-            <input
-              id="text-input"
-              type="text"
-              placeholder="Regular text input"
-              className="w-full px-3 py-2 bg-background text-foreground border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            />
+            <Label htmlFor="text-input">Text Input</Label>
+            <Input id="text-input" placeholder="Regular text input" />
           </div>
-          
+
           <div className="space-y-2">
-            <label htmlFor="text-area" className="text-sm font-medium">Text Area</label>
-            <textarea
+            <Label htmlFor="text-area">Text Area</Label>
+            <Textarea
               id="text-area"
               placeholder="Text area for longer content"
               rows={3}
-              className="w-full px-3 py-2 bg-background text-foreground border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
-          
+
           <div className="space-y-2">
-            <label htmlFor="select-input" className="text-sm font-medium">Select Input</label>
-            <select
-              id="select-input"
-              className="w-full px-3 py-2 bg-background text-foreground border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            >
-              <option value="">Select an option</option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select>
+            <Label htmlFor="select-input">Select Input</Label>
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Select an option" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="option1">Option 1</SelectItem>
+                <SelectItem value="option2">Option 2</SelectItem>
+                <SelectItem value="option3">Option 3</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          
+
           <div className="flex items-center gap-2">
-            <input
-              id="checkbox"
-              type="checkbox"
-              className="h-4 w-4 border border-input rounded bg-background focus:ring-2 focus:ring-primary"
-            />
-            <label htmlFor="checkbox" className="text-sm font-medium">Checkbox</label>
+            <Checkbox id="checkbox" />
+            <Label htmlFor="checkbox" className="text-sm font-medium">
+              Checkbox
+            </Label>
           </div>
-          
+
           <div className="space-y-2">
-            <span className="text-sm font-medium">Radio Buttons</span>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <input
-                  id="radio1"
-                  type="radio"
-                  name="radio-group"
-                  className="h-4 w-4 border border-input rounded-full bg-background focus:ring-2 focus:ring-primary"
-                />
-                <label htmlFor="radio1" className="text-sm">Option 1</label>
+            <Label>Radio Buttons</Label>
+            <RadioGroup defaultValue="option1">
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="option1" id="radio1" />
+                <Label htmlFor="radio1">Option 1</Label>
               </div>
-              <div className="flex items-center gap-2">
-                <input
-                  id="radio2"
-                  type="radio"
-                  name="radio-group"
-                  className="h-4 w-4 border border-input rounded-full bg-background focus:ring-2 focus:ring-primary"
-                />
-                <label htmlFor="radio2" className="text-sm">Option 2</label>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="option2" id="radio2" />
+                <Label htmlFor="radio2">Option 2</Label>
               </div>
-            </div>
+            </RadioGroup>
           </div>
-          
+
           <div className="space-y-2">
-            <label htmlFor="range" className="text-sm font-medium">Range Slider</label>
-            <input
-              id="range"
-              type="range"
-              min="0"
-              max="100"
-              className="w-full h-2 bg-muted rounded-lg appearance-none"
-            />
+            <Label htmlFor="range">Range Slider</Label>
+            <Slider defaultValue={[50]} max={100} step={1} />
           </div>
         </div>
       </div>

@@ -1,13 +1,14 @@
-import '../styles/globals.css';
-import { ThemeProvider } from '../components/theme/ThemeProvider';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import "../styles/globals.css";
+import { ThemeProvider } from "../components/theme/ThemeProvider";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Theme Tester',
-  description: 'A website for testing different themes',
+  title: "Theme Tester",
+  description: "A website for testing different themes",
 };
 
 export default function RootLayout({
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
